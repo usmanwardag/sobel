@@ -41,12 +41,7 @@ initial begin
 	reset = 0;
 	pxl_in = 0;
 
-	// Wait 100 ns for global reset to finish
-	//#100;
-      	//reset = 0; 
-
 	// 5*5 image
-
 	#20 pxl_in = 1; #20 pxl_in = 2; #20 pxl_in = 3; #20 pxl_in = 4; #20 pxl_in = 5;	
 	#20 pxl_in = 0; #20 pxl_in = 1; #20 pxl_in = 0; #20 pxl_in = 1; #20 pxl_in = 0;
 	#20 pxl_in = 1; #20 pxl_in = 2; #20 pxl_in = 3; #20 pxl_in = 4; #20 pxl_in = 5;
@@ -55,3 +50,5 @@ initial begin
 
 	end 
 	always #10 clk = ~ clk;
+
+endmodule

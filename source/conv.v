@@ -13,7 +13,6 @@ module conv(
 	output valid
     );
 
-
 	//Define constants
 	parameter N = 5;	//Image columns
 	parameter M = 5;	//Image rows
@@ -65,10 +64,10 @@ module conv(
 	
 	assign pxl_out = reg_22;	
 
+	// Valid bit logic
+
 	reg [8:0] counter = 0;
 	reg temp = 0;
-
-	// Valid bit logic
 
 	always @(posedge clk) begin
 		counter = counter + 1;
@@ -76,19 +75,15 @@ module conv(
 		// The logic below needs some revisiting to scale properly
 		if (counter > ((K-1)*N + (K-1)) && counter < (M*N) + (K-1)) begin
 			if ((counter - (K-1)) % N > 1) begin
-
 				temp <= 1;
 				end
 			else
 				temp <= 0;
 				end
-			
 		else
 			temp <= 0; 
 			end
 				 
-
 	assign valid = temp;
-
 
 endmodule

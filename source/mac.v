@@ -1,3 +1,5 @@
+// Multiply Accumulate Unit
+
 `timescale 1ns / 1ps
 
 module mac(
@@ -8,9 +10,7 @@ module mac(
     );
 
 wire [15:0] d;
-
 assign d = w * in;
-
 assign out = d + b;
  
 endmodule
